@@ -1,0 +1,9 @@
+
+# Bancos de dados locais
+dados/*.db
+dados/*.sqlite
+dados/*.sqlite3
+
+# Python
+__pycache__/
+*.py[cod]
