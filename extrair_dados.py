@@ -1,4 +1,3 @@
-
 import sqlite3
 
 caminho_banco = "dados/curso_sql.db"
@@ -6,21 +5,28 @@ caminho_banco = "dados/curso_sql.db"
 conexao = sqlite3.connect(caminho_banco)
 cursor = conexao.cursor()
 
-cursor.execute("""
+tabelas = cursor.execute("""
     SELECT name
     FROM sqlite_master
     WHERE type = 'table'
-    ORDER BY name;
-""")
+    AND name NOT LIKE 'sqlite_%'
+    ORDER BY name
+""").fetchall()
 
-tabelas = cursor.fetchall()
+for (tabela,) in tabelas:
+    quantidade = cursor.execute(
+        f'SELECT COUNT(*) FROM "{tabela}"'
+    ).fetchone()[0]
 
-print("Tabelas encontradas:\n")
+    print(f"Tabela: {tabela} | Registros: {quantidade}")
 
-if tabelas:
-    for tabela in tabelas:
-        print(tabela[0])
-else:
-    print("Nenhuma tabela encontrada.")
+    colunas = cursor.execute(
+        f'PRAGMA table_info("{tabela}")'
+    ).fetchall()
+
+    for coluna in colunas:
+        print(f"  - {coluna[1]} ({coluna[2]})")
+
+    print()
 
 conexao.close()
