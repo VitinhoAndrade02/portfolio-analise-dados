@@ -28,3 +28,43 @@ SELECT country, ref_year, tot_pop
 FROM population
 WHERE tot_pop > 1000000000;
 -- Resultado: Todos os dados da tabela population onde a população total seja maior que 1 bilhão serão exibidos.
+
+
+-- Exercício 6: Selecione todos os dados da tabela population onde a população total seja igual e diferente a NULL.
+SELECT *
+FROM population
+WHERE tot_pop = NULL;
+
+SELECT *
+FROM population
+WHERE tot_pop != NULL;
+-- Resultado: Os operadores = (igual) e != (diferente) não funcionam com campos nulos.
+
+
+-- Exercício 7: Selecione todos os dados da tabela population onde a população total seja nula.
+SELECT *
+FROM population
+WHERE tot_pop IS NULL;
+-- Resultado: Todos os dados da tabela population onde a população total seja nula serão exibidos.
+
+
+-- Exercício 8: Selecione todos os dados da tabela population onde a população total não seja nula.
+SELECT *
+FROM population
+WHERE tot_pop IS NOT NULL;
+-- Resultado: Todos os dados da tabela population onde a população total não seja nula serão exibidos.
+
+
+-- Exercício 9: Selecione todos os dados da tabela child_mortality onde o total de mortes esteja entre 570 e 630.
+SELECT country, ref_year, tot_deaths
+FROM child_mortality
+WHERE tot_deaths BETWEEN 570 AND 630;
+-- Resultado: Todos os dados da tabela child_mortality onde o total de mortes esteja entre 570 e 630 serão exibidos.
+
+
+-- Exercício 10: Selecione todos os dados da tabela petrobras onde a data esteja entre '2020-02-20' e '2020-03-20'.
+SELECT `date`, open, high, low, close, `adj close`, volume
+FROM petrobras
+WHERE `date` BETWEEN '2020-02-20' AND '2020-03-20';
+-- Resultado: Todos os dados da tabela petrobras onde a data esteja entre '2020-02-20' e '2020-03-20' serão exibidos.
+-- Observação: As colunas 'date' e 'adj close' foram colocadas entre aspas invertidas (`) para evitar conflitos com palavras reservadas do SQL.
