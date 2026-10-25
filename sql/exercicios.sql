@@ -21,7 +21,8 @@ WHERE country = 'Brazil';
 SELECT ref_year, co2_pc
 FROM co2_emissions_pc
 WHERE country = 'Brazil';
--- Resultado: Apenas as col'unas ref_year e co2_pc serão exibidas para o país 'Brazil'.
+-- Resultado: Apenas as colunas ref_year e co2_pc serão exibidas para o país 'Brazil'.
+
 
 -- Exercício 5: Selecione todos os dados da tabela population onde a população total seja maior que 1 bilhão.
 SELECT country, ref_year, tot_pop
@@ -68,3 +69,13 @@ FROM petrobras
 WHERE `date` BETWEEN '2020-02-20' AND '2020-03-20';
 -- Resultado: Todos os dados da tabela petrobras onde a data esteja entre '2020-02-20' e '2020-03-20' serão exibidos.
 -- Observação: As colunas 'date' e 'adj close' foram colocadas entre aspas invertidas (`) para evitar conflitos com palavras reservadas do SQL.
+
+
+-- Exercício 11: Selecione todos os dados da tabela co2_emissions_pc onde o ano de referência seja 2020 e as emissões de CO2 por capital sejam maiores que 20.0.
+SELECT country, co2_pc
+FROM co2_emissions_pc
+WHERE ref_year = 2020
+ AND co2_pc > 20.0;
+-- Resultado: Todos os dados da tabela co2_emissions_pc onde o ano de referência seja 2020 e as emissões de CO2 por capital sejam maiores que 20.0 serão exibidos.
+
+
