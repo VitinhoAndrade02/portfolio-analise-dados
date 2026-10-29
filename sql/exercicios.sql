@@ -79,3 +79,32 @@ WHERE ref_year = 2020
 -- Resultado: Todos os dados da tabela co2_emissions_pc onde o ano de referência seja 2020 e as emissões de CO2 por capital sejam maiores que 20.0 serão exibidos.
 
 
+--Exerício 12: Indique se há linhas com valores nulos no campo gdp_pc na tabela gdp_pc.
+SELECT *
+FROM gdp_pc
+WHERE gdp_pc is null;
+-- Resultado: Se houver linhas com valores nulos no campo gdp_pc, elas serão exibidas. Caso contrário, nenhum resultado será retornado.
+
+
+-- Exercício 13: Na tabela child_mortality, indique se há linhas com valores nulos no campo tot_deaths.
+SELECT *
+FROM child_mortality
+WHERE tot_deaths is null;
+-- Resultado: Se houver linhas com valores nulos no campo tot_deaths, elas serão exibidas. Caso contrário, nenhum resultado será retornado.
+
+
+-- Exercício 14: Segundo o Ministério da Saúde, as taxas de mortalidade infantil (TMI) são classificadas em altas (50 ou mais), médias (20-49) e baixas (menos de 20). Utilizando a tabela child_mortality e o campo tot_deaths, encontre todos os países que alcançaram taxas de mortalidade baixas com uma variação de 5%, ou seja, com valor de 20±5%. Indique em que ano o Brasil atingiu essa TMI.
+SELECT *
+FROM child_mortality
+WHERE tot_deaths BETWEEN 19 AND 21
+AND country = 'Brazil';
+-- Resultado: Todos os dados da tabela child_mortality onde o país seja 'Brazil' e a taxa de mortalidade infantil esteja entre 19 e 21 serão exibidos, indicando o ano em que o Brasil atingiu essa TMI.
+
+
+-- Exercício 15: Utilizando a tabela life_expectancy e o campo tot_years, indique qual a expectativa de vida do brasileiro nos anos de 2019 a 2023. Liste os valores, observe o que ocorreu e comente as prováveis causas.
+SELECT *
+FROM life_expectancy
+WHERE ref_year BETWEEN '2019' AND '2023'
+AND country = 'Brazil';
+-- Resultado: A expectativa de vida em 2019 era de 75,8 anos. Em 2020, caiu para 74,5 anos e, em 2021, para 73,2 anos. Em 2022, houve uma recuperação, alcançando 73,9 anos, e em 2023, subiu para 76,7 anos. Essa redução na expectativa de vida durante o período foi, provavelmente, causada pelo aumento de óbitos decorrentes da pandemia de covid-19.
+
