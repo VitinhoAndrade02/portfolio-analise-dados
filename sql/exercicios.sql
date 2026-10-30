@@ -108,3 +108,17 @@ WHERE ref_year BETWEEN '2019' AND '2023'
 AND country = 'Brazil';
 -- Resultado: A expectativa de vida em 2019 era de 75,8 anos. Em 2020, caiu para 74,5 anos e, em 2021, para 73,2 anos. Em 2022, houve uma recuperação, alcançando 73,9 anos, e em 2023, subiu para 76,7 anos. Essa redução na expectativa de vida durante o período foi, provavelmente, causada pelo aumento de óbitos decorrentes da pandemia de covid-19.
 
+--Exercício 16: Utilizando a tabela population, selecione os países cuja população ultrapassou 200 milhões de habitantes em 2023. Use notação científica para representar a população na consulta e indique a população de cada país selecionado nos resultados.
+SELECT *
+FROM population
+WHERE tot_pop > 0.2e9
+AND ref_year = 2023;
+-- Resultado: Todos os países cuja população ultrapassou 200 milhões de habitantes em 2023 serão exibidos, juntamente com a população de cada país selecionado nos resultados.
+
+-- Exercício 17: Utilizando a tabela co2_emissions_pc, indique as emissões de CO2 no Brasil, na China e nos Estados Unidos, de 2019 a 2021. Compartilhe as suas observações sobre a pesquisa.
+SELECT *
+FROM co2_emissions_pc
+WHERE ref_year BETWEEN 	2019 AND 2021
+AND country IN ('Brazil', 'China', 'USA');
+-- Resultado: As emissões de CO2 no Brasil, na China e nos Estados Unidos, de 2019 a 2021 serão exibidas. Observações: A China apresentou as maiores emissões de CO2 entre os três países, seguida pelos Estados Unidos e pelo Brasil. A variação das emissões ao longo dos anos pode estar relacionada a fatores econômicos, políticas ambientais e eventos globais, como a pandemia de COVID-19, que impactou a produção industrial e o consumo de energia.
+
