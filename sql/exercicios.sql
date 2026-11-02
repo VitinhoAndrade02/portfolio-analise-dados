@@ -122,3 +122,24 @@ WHERE ref_year BETWEEN 	2019 AND 2021
 AND country IN ('Brazil', 'China', 'USA');
 -- Resultado: As emissões de CO2 no Brasil, na China e nos Estados Unidos, de 2019 a 2021 serão exibidas. Observações: A China apresentou as maiores emissões de CO2 entre os três países, seguida pelos Estados Unidos e pelo Brasil. A variação das emissões ao longo dos anos pode estar relacionada a fatores econômicos, políticas ambientais e eventos globais, como a pandemia de COVID-19, que impactou a produção industrial e o consumo de energia.
 
+
+-- Exercício 18: Utilizando a tabela country e o operador IN, selecione os países europeus de renda média baixa. Use a classificação Gapminder de 8 regiões geográficas (campo eight_regions com valor europe_east e europe_west), para verificar os países, e a classificação de 4 faixas de renda do Banco Mundial (campo wb4income com o valor Lower middle income), para verificar a renda. Indique se todos os países são do leste europeu.
+SELECT country, eight_regions, wb4income
+FROM country
+WHERE eight_regions IN ('europe_west', 'europe_east')
+AND wb4income = 'Lower middle income';
+-- Resultado: Todos os países europeus de renda média baixa serão exibidos, juntamente com suas respectivas regiões geográficas e faixas de renda.
+
+
+-- Exercício 19: Utilizando a tabela country, selecione os países do continente asiático segundo a classificação de oito regiões (coluna eight_regions). Além da coluna country, traga as colunas eight_regions e wb_regions para comparação.
+SELECT country, eight_regions, wb_regions
+FROM country
+WHERE eight_regions LIKE '%asia%';
+-- Resultado: Todos os países do continente asiático serão exibidos, juntamente com suas respectivas regiões geográficas e regiões do Banco Mundial para comparação.
+
+
+-- Exercício 20: Pesquise os países das Américas, segundo a classificação do Banco Mundial (coluna wb_regions), utilizando o operador LIKE.
+SELECT country, wb_regions
+FROM country
+WHERE wb_regions LIKE '%america%';
+-- Resultado: Todos os países das Américas serão exibidos, juntamente com suas respectivas regiões do Banco Mundial.
